@@ -228,6 +228,41 @@ export function downloadBin(m, type, name) {
     link.click();
 }
 
+export function downloadBrail(m, type, name) {
+    var r = "";
+    console.log(m.matrix, m.W, m.H);
+    for(let y=0; y < m.H; y+=4) {
+        for(let x=0; x<m.W; x+=2) {
+            var v = 0;
+            for (var k = 0; k < 8; k++) {
+                var x1 = x, y1 = y;
+                if (k <= 2) y1 += k;
+                else if (k <= 5) {
+                    x1++;
+                    y1 += k - 3;
+                } else if (k == 6) y1 += 3;
+                else {
+                    y1 += 3;
+                    x1++;
+                }
+                v = (v >> 1) | (((((x1 + y1 * m.W) < m.W*m.H) ? m.matrix[x1 + y1 * m.W] : 0) > 0) << 7);
+            }
+            r += String.fromCharCode(v + 10240);
+        }
+        r += "\n";
+        //console.log(y);
+    }
+    console.log(r);
+    let enc = new TextEncoder();
+    let bytes = enc.encode(r);
+    let blob = new Blob([bytes], { type: "text/plain" });
+    let link = document.createElement('a');
+    link.href = window.URL.createObjectURL(blob);
+    name += '.txt';
+    link.download = name;
+    link.click();
+}
+
 export function downloadCode(m, type, name) {
     let code = makeCode(m, type, name);
     let str = `#pragma once

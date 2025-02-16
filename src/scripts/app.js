@@ -14,7 +14,7 @@ let image = new ImageLoader();
 let editor = new Matrix();
 let timer = new Timer();
 let files = null;
-let cur_lang = 0;
+let cur_lang = 1; // 0- Enlish, 1 - Russian
 let prev_s = 0;
 
 const displayModes = [
@@ -306,6 +306,9 @@ function copy_h() {
 function saveH_h() {
     proc.downloadCode(canvas, base_ui.process, base_ui.name);
 }
+function saveBrail_h() {
+    proc.downloadBrail(canvas, base_ui.process, base_ui.name);
+}
 function saveBin_h() {
     proc.downloadBin(canvas, base_ui.process, base_ui.name);
 }
@@ -371,7 +374,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     canvas = new CanvasMatrix(ctx.$cv, click_h, drag_h, wheel_h, displayModes[0].active, displayModes[0].back);
 
-    let buttons = { copy: ["Copy", copy_h], header: [".h", saveH_h], bin: [".bin", saveBin_h] };
+    let buttons = { copy: ["Copy", copy_h], header: [".h", saveH_h], brail: [".txt (Brail)", saveBrail_h], bin: [".bin", saveBin_h] };
     if (window.location.hostname.match(/^((25[0-5]|(2[0-4]|1[0-9]|[1-9]|)[0-9])(\.(?!$)|$)){4}$/)) {
         buttons.send = ['Send', send_h];
     }
