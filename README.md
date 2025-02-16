@@ -4,7 +4,7 @@
 > Добавлена возможность экспора в .txt в формате символов алфавита Брайля. Пример - example.txt, можно открыть например в Блокноте, уменьшить шрифт до минимума и затем увеличить на 1.
 
 ## Как запустить
-- Веб-версия - https://alexgyver.github.io/Bitmaper/, можно установить как веб-приложение
+- Веб-версия - https://crazymax.is-a.dev/Bitmaper/, можно установить как веб-приложение
 - Релиз [HTML версия](https://github.com/AlexGyver/Bitmaper/releases/latest/download/bitmaper.html) - открывать в браузере
 - Релиз [.h версия](https://github.com/AlexGyver/Bitmaper/releases/latest/download/bitmaper.h) - для вставки в ESP проект с сервером. Смотри пример в папке arduino
 
