@@ -1,6 +1,8 @@
 # Bitmaper
 Программа для преобразования изображений в bitmap
 
+> Добавлена возможность экспора в .txt в формате символов алфавита Брайля
+
 ## Как запустить
 - Веб-версия - https://alexgyver.github.io/Bitmaper/, можно установить как веб-приложение
 - Релиз [HTML версия](https://github.com/AlexGyver/Bitmaper/releases/latest/download/bitmaper.html) - открывать в браузере
